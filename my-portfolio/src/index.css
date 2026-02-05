@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Portfolio 3D Design System - Dark, Sophisticated with Glowing Accents */
+
+@layer base {
+  :root {
+    --background: 220 20% 6%;
+    --foreground: 210 20% 98%;
+
+    --card: 220 20% 10%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 220 20% 10%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 175 80% 50%;
+    --primary-foreground: 220 20% 6%;
+
+    --secondary: 220 20% 15%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 220 15% 20%;
+    --muted-foreground: 215 15% 60%;
+
+    --accent: 280 70% 60%;
+    --accent-foreground: 210 20% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 15%;
+    --ring: 175 80% 50%;
+
+    --radius: 0.5rem;
+
+    /* Custom portfolio variables */
+    --glow-primary: 175 80% 50%;
+    --glow-accent: 280 70% 60%;
+    --gradient-start: 175 80% 50%;
+    --gradient-end: 280 70% 60%;
+  }
+
+  .dark {
+    /* Same as root - dark by default */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--gradient-start)) 0%, hsl(var(--gradient-end)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 20px hsl(var(--glow-primary) / 0.4),
+                0 0 40px hsl(var(--glow-primary) / 0.2),
+                0 0 60px hsl(var(--glow-primary) / 0.1);
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 20px hsl(var(--glow-accent) / 0.4),
+                0 0 40px hsl(var(--glow-accent) / 0.2);
+  }
+
+  .glass {
+    background: hsl(var(--card) / 0.6);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  .section-padding {
+    @apply py-20 md:py-32 px-6 md:px-12;
+  }
+}
