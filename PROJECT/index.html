@@ -1,85 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شريان | Sheryan</title>
-    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@700&family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <div id="login-screen" class="screen">
-        <div class="glass-box">
-            <h2 class="login-title">بوابة شريان</h2>
-            <p class="login-subtitle">يرجى تسجيل الدخول للمتابعة</p>
-            
-            <input type="text" id="username" placeholder="اسم المستخدم">
-            <input type="password" id="password" placeholder="كلمة المرور">
-            
-            <button class="btn" onclick="handleLogin()">دخول</button>
-            <p id="login-error" class="error-msg">بيانات الدخول غير صحيحة!</p>
-        </div>
-    </div>
-
-    <div id="main-screen" class="screen hidden">
-        <h1 class="brand-name">شـريـان</h1>
-        <p class="brand-slogan">منصة التبرع الذكية</p>
-        
-        <div class="menu-container">
-            <button class="btn main-btn" onclick="openDonationCheck()">تبرع الآن ❤</button>
-            <button class="btn btn-outline main-btn" onclick="alert('جاري البحث عن أقرب حملة تبرع في منطقتك...')">🔍 البحث عن حملات</button>
-        </div>
-    </div>
-
-    <div id="donation-modal" class="hidden">
-        <div class="glass-box modal-box">
-            <div id="close-modal" onclick="closeModal()">✕</div>
-            
-            <div id="step-1" class="quiz-step active">
-                <h3>خطوة 1 من 3</h3>
-                <p>هل عمرك أكبر من 18 عاماً؟</p>
-                <button class="btn" onclick="nextStep(2)">نعم</button>
-                <button class="btn btn-outline" onclick="showReject('عفواً، يجب أن يكون عمرك 18 عاماً على الأقل.')">لا</button>
-            </div>
-
-            <div id="step-2" class="quiz-step">
-                <h3>خطوة 2 من 3</h3>
-                <p>متى كان آخر تبرع لك بالدم؟</p>
-                <button class="btn" onclick="nextStep(3)">منذ أكثر من 3 أشهر (أو لم أتبرع من قبل)</button>
-                <button class="btn btn-outline" onclick="showReject('عفواً، يجب مرور 3 أشهر على الأقل بين كل تبرع.')">منذ أقل من 3 أشهر</button>
-            </div>
-
-            <div id="step-3" class="quiz-step">
-                <h3>خطوة 3 من 3</h3>
-                <p>هل تعاني من أي أمراض مزمنة أو تأخذ أدوية سيولة؟</p>
-                <button class="btn btn-outline" onclick="nextStep('finish')">لا، صحتي جيدة</button>
-                <button class="btn" onclick="showReject('يرجى استشارة الطبيب، قد لا يناسبك التبرع حالياً.')">نعم</button>
-            </div>
-
-            <div id="step-reject" class="quiz-step">
-                <h3 class="reject-title">نعتذر منك ✋</h3>
-                <p id="reject-reason" class="reject-text"></p>
-                <button class="btn btn-outline" onclick="closeModal()">إغلاق</button>
-            </div>
-
-            <div id="step-finish" class="quiz-step">
-                <h3 class="success-msg">أنت بطل! 🎉</h3>
-                <p>أنت مؤهل مبدئياً للتبرع.</p>
-                <button class="btn" onclick="alert('تم تسجيل طلبك بنجاح! سيتم التواصل معك.')">تأكيد الحجز</button>
-            </div>
-        </div>
-    </div>
-
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-            }
-        }
-    </script>
-
-    <script type="module" src="script.js"></script>
-</body>
-</html>
